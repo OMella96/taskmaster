@@ -4,12 +4,7 @@ pipeline {
   parameters {
     string(name: 'ENTORNO', defaultValue: 'dev', description: 'Ambiente de ejecución')
   }
-
-  tools {
-    maven 'Maven_3.8.6'
-    jdk 'JDK11'
-  }
-
+  
   stages {
     stage('Compilar') {
       steps {
