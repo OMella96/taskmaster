@@ -4,7 +4,7 @@ pipeline {
   parameters {
     string(name: 'ENTORNO', defaultValue: 'dev', description: 'Ambiente de ejecución')
   }
-  
+
   stages {
     stage('Compilar') {
       steps {
@@ -15,6 +15,14 @@ pipeline {
     stage('Test') {
       steps {
         sh 'mvn test'
+      }
+    }
+
+    stage('Análisis SonarQube') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+          sh 'mvn sonar:sonar'
+        }
       }
     }
 

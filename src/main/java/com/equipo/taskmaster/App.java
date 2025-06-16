@@ -20,6 +20,8 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Bienvenido a TaskMaster!");
         System.out.println("Ambiente: " + System.getProperty("env.name"));
+        String password = "123456"; // Hardcoded password (vulnerabilidad para SonarQube)
+
         addTask("Estudiar Maven");
         addTask("Leer Sobre CI/CD");
         printTasks();
