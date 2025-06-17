@@ -18,10 +18,10 @@ pipeline {
       }
     }
 
-    stage('Análisis SonarQube') {
+   stage('Análisis SonarQube') {
   steps {
-    withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
-      sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=http://sonarqube:9000'
+    withCredentials([string(credentialsId: 'e65c9702-18a0-4e23-976c-e99e3cd744d9', variable: 'SONAR_TOKEN')]) {
+      sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=http://localhost:9000'
     }
   }
 }
