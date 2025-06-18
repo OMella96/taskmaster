@@ -26,6 +26,13 @@ pipeline {
       }
     }
 
+    // ✅ Nuevo stage para OWASP Dependency-Check
+    stage('Dependency Check') {
+      steps {
+        sh '/opt/dependency-check/dependency-check/bin/dependency-check.sh --project "MiProyecto" --scan . --format HTML --out reports/'
+      }
+    }
+
     stage('Ejecutar con perfil') {
       steps {
         sh "mvn exec:java -P${params.ENTORNO} -Denv.name=${params.ENTORNO}"
