@@ -29,7 +29,7 @@ pipeline {
     // ✅ Nuevo stage para OWASP Dependency-Check
     stage('Dependency Check') {
       steps {
-        sh '/opt/dependency-check/dependency-check/bin/dependency-check.sh --project "MiProyecto" --scan . --format HTML --out reports/'
+        sh '/opt/dependency-check/bin/dependency-check.sh --project "MiProyecto" --scan . --format HTML --out reports/'
       }
     }
 
